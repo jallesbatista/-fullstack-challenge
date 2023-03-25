@@ -6,18 +6,22 @@ import {
   updateClientController,
 } from "../controllers/client.controller";
 import {
-  ensureClientExistsMiddleware,
-  ensureIsClientOwnerMiddleware,
   ensureValidateBodyMiddleware,
   ensureValidateTokenMiddleware,
   ensureValidateUuidMiddleware,
 } from "../middlewares";
+import {
+  ensureClientAlreadyExistsMiddleware,
+  ensureClientExistsMiddleware,
+  ensureIsClientOwnerMiddleware,
+} from "../middlewares/client";
 import { clientRequestSerializer, clientUpdateSerializer } from "../serializers/client.serializer";
 
 const clientRouter = Router();
 clientRouter.post(
   "",
   ensureValidateBodyMiddleware(clientRequestSerializer),
+  ensureClientAlreadyExistsMiddleware,
   createClientController
 );
 clientRouter.patch(
@@ -27,6 +31,7 @@ clientRouter.patch(
   ensureIsClientOwnerMiddleware,
   ensureClientExistsMiddleware,
   ensureValidateBodyMiddleware(clientUpdateSerializer),
+  ensureClientAlreadyExistsMiddleware,
   updateClientController
 );
 clientRouter.get("", ensureValidateTokenMiddleware, retrieveClientController);

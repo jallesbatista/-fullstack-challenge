@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import AppDataSource from "../data-source";
-import { Client } from "../entities/client.entity";
-import { AppError } from "../errors/AppError";
+import AppDataSource from "../../data-source";
+import { Client } from "../../entities/client.entity";
+import { AppError } from "../../errors/AppError";
 
 const ensureClientExistsMiddleware = async (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;
