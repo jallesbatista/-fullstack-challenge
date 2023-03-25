@@ -101,15 +101,15 @@ OBS: Erros podem ocorrer por conta de incompatibilidade da versão do **typeorm*
   - [Login de clientes](#11-login-de-clientes---login---post)
 - [Clientes](#2-clientes)
   - [Criar cliente](#21-criar-cliente---client---post)
-  - [Informações do cliente logado](#22-informações-do-cliente-logado---client---get---autenticada-🔐)
-  - [Atualização dos dados do cliente](#23-atualizar-dados-do-cliente---clientclient_id---patch---autenticada-🔐)
-  - [Deletar dados do cliente](#23-deletar-dados-do-cliente---clientclient_id---delete---autenticada-🔐)
+  - [Informações do cliente logado](#22-informações-do-cliente-logado---client---get)
+  - [Atualização dos dados do cliente](#23-atualizar-dados-do-cliente---clientclient_id---patch)
+  - [Deletar dados do cliente](#23-deletar-dados-do-cliente---clientclient_id---delete)
 - [Contatos](#3-contatos)
-  - [Adicionar contato a um cliente](#31-adicionar-contato---contact---post---autenticada-🔐)
-  - [Informações de um contato do cliente logado](#32-informações-de-um-contato---contactcontact_id---get---autenticada-🔐)
-  - [Listar contatos do cliente logado](#33-listar-contatos---contact---get---autenticada-🔐)
-  - [Atualizar dados de um contato do cliente logado](#atualizar-dados-de-um-contato---contactcontact_id---patch---autenticada-🔐)
-  - [Deletar contato do cliente logado](#deletar-contato---contactcontact_id---delete---autenticada-🔐)
+  - [Adicionar contato a um cliente](#31-adicionar-contato---contact---post)
+  - [Informações de um contato do cliente logado](#32-informações-de-um-contato---contactcontact_id---get)
+  - [Listar contatos do cliente logado](#33-listar-contatos---contact---get)
+  - [Atualizar dados de um contato do cliente logado](#atualizar-dados-de-um-contato---contactcontact_id---patch)
+  - [Deletar contato do cliente logado](#deletar-contato---contactcontact_id---delete)
 
 ---
 
@@ -245,9 +245,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### 2.2. Informações do cliente logado - ("/client") - GET - autenticada 🔐
+### 2.2. Informações do cliente logado - ("/client") - GET
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - ✅ Resposta (OK) - status: 200
 
@@ -261,9 +263,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### 2.3. Atualizar dados do cliente - ("/client/**:client_id**") - PATCH - autenticada 🔐
+### 2.3. Atualizar dados do cliente - ("/client/**:client_id**") - PATCH
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 | Campo editável | Tipo   | Descrição                                 |
 | -------------- | ------ | ----------------------------------------- |
@@ -303,7 +307,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### 2.3. Deletar dados do cliente - ("/client/**:client_id**") - DELETE - autenticada 🔐
+### 2.3. Deletar dados do cliente - ("/client/**:client_id**") - DELETE
+
+[Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - ✅ Resposta (No content) - status: 204 - **No content**
 
@@ -333,9 +341,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 | PATCH  | /contact/**:contact_id** | Atualiza os dados de um contato do cliente logado. |
 | DELETE | /contact/**:contact_id** | Deleta um contato do cliente logado.               |
 
-### 3.1. Adicionar contato - ("/contact") - POST - autenticada 🔐
+### 3.1. Adicionar contato - ("/contact") - POST
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - Dados de envio:
 
@@ -375,9 +385,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### 3.2. Informações de um contato - ("/contact/**contact_id**") - GET - autenticada 🔐
+### 3.2. Informações de um contato - ("/contact/**contact_id**") - GET
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - ✅ Resposta (OK) - status: 200
 
@@ -399,9 +411,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### 3.3 Listar contatos - ("/contact") - GET - autenticada 🔐
+### 3.3 Listar contatos - ("/contact") - GET
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - ✅ Resposta (OK) - status: 200
 
@@ -419,9 +433,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 
 ```
 
-### Atualizar dados de um contato - ("/contact/**contact_id**") - PATCH - autenticada 🔐
+### Atualizar dados de um contato - ("/contact/**contact_id**") - PATCH
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 | Campo editável | Tipo   | Descrição                                 |
 | -------------- | ------ | ----------------------------------------- |
@@ -459,9 +475,11 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-### Deletar contato - ("/contact/**contact_id**") - DELETE - autenticada 🔐
+### Deletar contato - ("/contact/**contact_id**") - DELETE
 
 [Retornar aos Endpoints - 🔙](#endpoints)
+
+🔐 Autenticada
 
 - ✅ Resposta (No Content) - status: 204 - **No content**
 
