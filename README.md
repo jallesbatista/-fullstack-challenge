@@ -6,7 +6,7 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 
 - [Back End](#back-end)
   - [Visão Geral](#visão-geral)
-    - [Técnologias utilizadas](#tecnologias-utilizadas)
+    - [Técnologias utilizadas](#--tecnologias-utilizadas)
   - [Rodar o servidor localmente](#rodar-o-servidor-localmente)
     - [Intalação de dependências](#1-intalação-de-dependências)
     - [Criando variáveis de ambiente](#11-criando-váriaveis-de-ambiente)
