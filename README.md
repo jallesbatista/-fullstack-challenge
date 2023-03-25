@@ -35,7 +35,7 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 
 [Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
 
-#### 🚨 **Importante** 🚨
+<h4 align="center"><strong>🚨 Importante 🚨</strong></h4>
 
 Antes de tudo clone o repositório e certifique-se que o terminal está aberto dentro da pasta **/back**, caso esteja na pasta raiz do projeto, dentro do terminal utilize:
 
