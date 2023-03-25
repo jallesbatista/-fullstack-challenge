@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { AppError } from "../errors/AppError";
+import { AppError } from "../../errors/AppError";
 
 const ensureIsClientOwnerMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const { id } = req.params;

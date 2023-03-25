@@ -20,10 +20,7 @@ const createSessionService = async ({
     throw new AppError("Invalid credentials", 403);
   }
 
-  const validatePassword = await bcrypt.compare(
-    password,
-    clientExists.password
-  );
+  const validatePassword = await bcrypt.compare(password, clientExists.password);
 
   if (!validatePassword) {
     throw new AppError("Invalid credentials", 403);
