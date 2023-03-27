@@ -6,7 +6,7 @@ import AppDataSource from "./data-source";
     console.log("Error during initialization database", err);
   });
   console.log("Database conected!");
-  app.listen(3000, () => {
+  app.listen(3099, () => {
     console.log("Server conected!");
   });
 })();

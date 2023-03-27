@@ -178,7 +178,7 @@ A manipulação de dados através dos métodos **PATCH/DELETE** nas rotas dos **
 }
 ```
 
-- ❌ Resposta (Forbidden) - status: 403 - no caso de email e/ou senha incorretos.
+- ❌ Resposta (Unauthorized) - status: 401 - no caso de email e/ou senha incorretos.
 
 ```json
 {

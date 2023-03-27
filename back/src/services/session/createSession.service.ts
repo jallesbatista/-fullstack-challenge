@@ -17,13 +17,13 @@ const createSessionService = async ({
   });
 
   if (!clientExists) {
-    throw new AppError("Invalid credentials", 403);
+    throw new AppError("Invalid credentials", 401);
   }
 
   const validatePassword = await bcrypt.compare(password, clientExists.password);
 
   if (!validatePassword) {
-    throw new AppError("Invalid credentials", 403);
+    throw new AppError("Invalid credentials", 401);
   }
 
   const token = jwt.sign({}, process.env.SECRET_KEY, {
