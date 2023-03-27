@@ -21,7 +21,7 @@ export const clientRequestSerializer = clientResponseSerializer
     contacts: true,
   })
   .extend({
-    password: z.string(),
+    password: z.string().min(4),
     tel: z.string().min(13).max(13).regex(new RegExp("\\d{13}"), "Only tel numbers"),
   });
 
