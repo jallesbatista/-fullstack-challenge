@@ -57,7 +57,7 @@ export const UserProvider = ({ children }: IProviderProps) => {
 
       toast({
         position: "bottom-right",
-        title: "Account successfully deleted",
+        title: "Account successfully deleted!",
         status: "success",
         duration: 3000,
         isClosable: true,
@@ -67,7 +67,7 @@ export const UserProvider = ({ children }: IProviderProps) => {
         destroyCookie(null, "kenzie.token");
         setUser(null);
         router.push("/register");
-      }, 3000);
+      }, 2000);
     } catch (error: any) {
       toast({
         position: "bottom-right",
