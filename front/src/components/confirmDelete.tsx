@@ -47,7 +47,7 @@ const ConfirmDelete = ({ isOpen, onClose, toDelete }: IModalProps) => {
               <Button
                 loadingText="Submitting"
                 size="md"
-                type="submit"
+                type="button"
                 variant={"sucess"}
                 _hover={{
                   bg: "#63b16b",
