@@ -26,11 +26,11 @@ interface IContactFormProps {
   children?: ReactNode;
   onClose: () => void;
   isOpen: boolean;
-  contact?: IUserData;
+  setToEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ContactForm = ({ toEdit, onClose, isOpen, children, contact }: IContactFormProps) => {
-  const { contactRegister } = useContext(UserContext);
+const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactFormProps) => {
+  const { contact, contactRegister, contactEdit } = useContext(UserContext);
 
   const {
     register,
@@ -42,19 +42,45 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, contact }: IContactFor
   });
 
   useEffect(() => {
-    reset({
-      name: contact?.name,
-      email: contact?.email,
-      tel: contact?.tel,
-    });
-  }, []);
+    if (toEdit) {
+      reset({
+        name: contact?.name,
+        email: contact?.email,
+        tel: contact?.tel,
+      });
+    } else {
+      reset({
+        name: "",
+        email: "",
+        tel: "",
+      });
+    }
+  }, [toEdit]);
 
-  const onSubmit = (data: TContactRegister) => {
-    contactRegister(data);
+  const onSubmit = async (data: TContactRegister) => {
+    if (!toEdit) {
+      const sucess = await contactRegister(data);
+      if (sucess) {
+        reset({
+          name: "",
+          email: "",
+          tel: "",
+        });
+      }
+    } else {
+      await contactEdit(data);
+    }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal
+      isOpen={isOpen}
+      onClose={() => {
+        onClose();
+        setToEdit(false);
+      }}
+      isCentered
+    >
       <ModalOverlay />
       <ModalContent w={"90%"}>
         <Box
@@ -66,7 +92,7 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, contact }: IContactFor
           onSubmit={handleSubmit(onSubmit)}
         >
           <Heading fontSize={"1.5rem"} textAlign={"center"}>
-            Adicionar contato
+            {toEdit ? "Editar contato" : "Adicionar contato"}
           </Heading>
 
           <Stack spacing={4} minW={"200px"}>

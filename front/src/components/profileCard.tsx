@@ -1,12 +1,11 @@
 import { UserContext } from "@/contexts/userContext";
 import { userEditSchema } from "@/schemas";
 import { IModalProps, IUserEdit, IUserRegister } from "@/types";
-import { Link, Modal, ModalContent, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react";
+import { Modal, ModalContent, ModalOverlay } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import UserForm from "./userForm";
-import NextLink from "next/link";
 
 const ProfileCard = ({ isOpen, onClose }: IModalProps) => {
   const { userEdit, user } = useContext(UserContext);
