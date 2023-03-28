@@ -156,7 +156,7 @@ const UserForm = ({ register, errors, toEdit, onClose, children }: IUserFormProp
                 bg: "blue.700",
               }}
               _active={{
-                transform: "scale(0.9)",
+                transform: "scale(0.95)",
               }}
             >
               Cadastrar

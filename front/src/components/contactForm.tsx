@@ -172,7 +172,7 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
                     bg: "blue.700",
                   }}
                   _active={{
-                    transform: "scale(0.9)",
+                    transform: "scale(0.95)",
                   }}
                 >
                   Criar
