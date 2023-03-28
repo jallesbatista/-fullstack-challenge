@@ -1,6 +1,7 @@
 import { UserContext } from "@/contexts/userContext";
 import {
   Box,
+  ButtonGroup,
   Flex,
   IconButton,
   List,
@@ -13,9 +14,11 @@ import ContactCard from "./contactCard";
 import { MdPersonAdd } from "react-icons/md";
 import ContactForm from "./contactForm";
 import ConfirmDelete from "./confirmDelete";
+import { BsFileEarmarkPdf } from "react-icons/bs";
+import clientReportPDF from "../functions/clientReportPDF";
 
 const ContactsList = () => {
-  const { contactList } = useContext(UserContext);
+  const { contactList, setContact, user } = useContext(UserContext);
   const {
     isOpen: isContactFormOpen,
     onClose: onContactFormClose,
@@ -28,33 +31,48 @@ const ContactsList = () => {
     onOpen: onConfirmDeleteOpen,
   } = useDisclosure();
 
-  const { setContact, contact } = useContext(UserContext);
   const [toEdit, setToEdit] = useState<boolean>(false);
 
   return (
     <>
       <Box m={"0 auto"} w={"90%"} minW={300} mt={"106px"}>
-        <Flex direction={"column"} gap={2}>
-          <IconButton
-            variant={"ghost"}
-            color={useColorModeValue("green.800", "green.300")}
-            bg={useColorModeValue("green.200", "green.200")}
-            icon={<MdPersonAdd />}
-            border={"2px solid transparent"}
-            aria-label="Add contact"
-            _hover={{
-              transform: "scale(1.1)",
-              border: "2px solid #22543d",
-            }}
-            alignSelf={"flex-end"}
-            onClick={() => {
-              onContactFormOpen();
-              setContact(null);
-            }}
-            marginRight={4}
-            px={10}
-            size={"lg"}
-          />
+        <Flex direction={"column"} gap={4}>
+          <ButtonGroup>
+            <IconButton
+              variant={"ghost"}
+              color={useColorModeValue("green.800", "green.300")}
+              bg={useColorModeValue("green.200", "green.200")}
+              icon={<MdPersonAdd />}
+              border={"2px solid transparent"}
+              aria-label="Add contact"
+              _hover={{
+                transform: "scale(1.07)",
+                border: "2px solid #22543d",
+              }}
+              onClick={() => {
+                onContactFormOpen();
+                setContact(null);
+              }}
+              ml={2}
+              px={6}
+              size={"md"}
+              fontSize={"1.8rem"}
+            />
+
+            <IconButton
+              aria-label="Generate PDF"
+              icon={<BsFileEarmarkPdf />}
+              bg={useColorModeValue("red.700", "red.700")}
+              color="white"
+              px={6}
+              size={"md"}
+              fontSize={"1.8rem"}
+              _hover={{
+                transform: "scale(1.07)",
+              }}
+              onClick={() => clientReportPDF(user!, contactList)}
+            />
+          </ButtonGroup>
 
           <List
             zIndex={1}
