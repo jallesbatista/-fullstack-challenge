@@ -1,39 +1,40 @@
 import { UserContext } from "@/contexts/userContext";
 import {
-  Avatar,
   Box,
-  Card,
-  CardBody,
-  CardHeader,
   Flex,
-  Heading,
   IconButton,
   List,
   ListItem,
-  Stack,
-  TagLeftIcon,
-  Text,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ContactCard from "./contactCard";
 import { MdPersonAdd } from "react-icons/md";
 import ContactForm from "./contactForm";
-import { TContactRegister } from "@/types";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { contactSchema } from "@/schemas";
+import ConfirmDelete from "./confirmDelete";
 
 const ContactsList = () => {
   const { contactList } = useContext(UserContext);
-  const { isOpen, onClose, onOpen } = useDisclosure();
-  const { userEdit, user } = useContext(UserContext);
+  const {
+    isOpen: isContactFormOpen,
+    onClose: onContactFormClose,
+    onOpen: onContactFormOpen,
+  } = useDisclosure();
+
+  const {
+    isOpen: isConfirmDeleteOpen,
+    onClose: onConfirmDeleteClose,
+    onOpen: onConfirmDeleteOpen,
+  } = useDisclosure();
+
+  const { setContact, contact } = useContext(UserContext);
+  const [toEdit, setToEdit] = useState<boolean>(false);
 
   return (
     <>
-      <Box maxW={1200} m={"0 auto"} w={"90%"} minW={300}>
-        <Flex direction={"column"} gap={4}>
+      <Box m={"0 auto"} w={"90%"} minW={300} mt={"106px"}>
+        <Flex direction={"column"} gap={2}>
           <IconButton
             variant={"ghost"}
             color={useColorModeValue("green.800", "green.300")}
@@ -46,40 +47,58 @@ const ContactsList = () => {
               border: "2px solid #22543d",
             }}
             alignSelf={"flex-end"}
-            onClick={onOpen}
+            onClick={() => {
+              onContactFormOpen();
+              setContact(null);
+            }}
             marginRight={4}
+            px={10}
             size={"lg"}
           />
 
           <List
+            zIndex={1}
             spacing={4}
             minH={500}
             maxH={500}
             overflowY={"scroll"}
-            p={"4px 10px 50px 10px"}
+            p={"10px 10px 20px 10px"}
             sx={{
-              "&&::-webkit-scrollbar": {
-                width: "4px",
+              "::-webkit-scrollbar": {
+                width: "6px",
               },
               "::-webkit-scrollbar-track": {
                 width: "6px",
               },
               "::-webkit-scrollbar-thumb": {
-                background: "blue.100",
+                background: "blue.200",
                 borderRadius: "24px",
+              },
+              "@media (min-width: 768px)": {
+                maxHeight: "600px",
               },
             }}
           >
-            {contactList.map((contact) => (
-              <ListItem key={contact.id}>
-                <ContactCard contact={contact} />
+            {contactList.map((el) => (
+              <ListItem key={el.id}>
+                <ContactCard
+                  contact={el}
+                  onContactFormOpen={onContactFormOpen}
+                  setToEdit={setToEdit}
+                  onConfirmDeleteOpen={onConfirmDeleteOpen}
+                />
               </ListItem>
             ))}
           </List>
         </Flex>
       </Box>
-
-      <ContactForm isOpen={isOpen} onClose={onClose} />
+      <ConfirmDelete isOpen={isConfirmDeleteOpen} onClose={onConfirmDeleteClose} toDelete={true} />
+      <ContactForm
+        isOpen={isContactFormOpen}
+        onClose={onContactFormClose}
+        toEdit={toEdit}
+        setToEdit={setToEdit}
+      />
     </>
   );
 };

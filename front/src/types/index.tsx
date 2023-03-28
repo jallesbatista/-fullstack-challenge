@@ -36,6 +36,7 @@ export interface IProviderProps {
 export interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
+  toDelete?: boolean;
 }
 
 export type TContactRegister = Omit<IUserRegister, "password" | "confirmPassword">;

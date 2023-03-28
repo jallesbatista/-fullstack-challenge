@@ -9,6 +9,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Spacer,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -37,12 +38,16 @@ const Header = () => {
         bg={useColorModeValue("blue.700", "blue.100")}
         padding={5}
         boxShadow="dark-lg"
-        mb={10}
+        position={"fixed"}
+        minW="100%"
+        zIndex={999}
+        top={0}
       >
         <Flex justify={"space-between"} align={"center"}>
           <Heading fontSize={"1.5rem"} color="white">
             Kenzie
           </Heading>
+          <Spacer />
           <Menu>
             <MenuButton as={Button} alignContent={"center"}>
               <Flex align={"center"} gap={4}>
