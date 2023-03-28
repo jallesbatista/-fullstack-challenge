@@ -14,37 +14,39 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 
-const ConfirmDelete = ({ isOpen, onClose }: IModalProps) => {
-  const { userDelete } = useContext(UserContext);
+const ConfirmDelete = ({ isOpen, onClose, toDelete }: IModalProps) => {
+  const { userDelete, contactDelete } = useContext(UserContext);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent alignItems={"end"} width={"90%"}>
-        <Box
-          as="form"
-          rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
-          boxShadow={"lg"}
-          p={8}
-          onSubmit={() => userDelete()}
-        >
-          <Heading fontSize={"2rem"} textAlign={"center"} mb={4}>
-            Deletar conta
+        <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={4}>
+          <Heading fontSize={"1.5rem"} textAlign={"center"} mb={4}>
+            {toDelete ? "Remover contato" : "Deletar conta"}
           </Heading>
           <Stack spacing={4} minW={"200px"}>
-            <Text>
-              A deleção da conta é irreversível,{" "}
-              <Text color={"red.600"} fontWeight={800} as={"span"}>
-                todos os seus dados serão perdidos
+            {toDelete ? (
+              <Text>
+                <Text color={"red.600"} fontWeight={800} as={"span"}>
+                  A remoção do contato é permanente
+                </Text>
+                . Deseja prosseguir?
               </Text>
-              . Deseja prosseguir?
-            </Text>
+            ) : (
+              <Text>
+                A deleção da conta é irreversível,{" "}
+                <Text color={"red.600"} fontWeight={800} as={"span"}>
+                  todos os seus dados serão perdidos
+                </Text>
+                . Deseja prosseguir?
+              </Text>
+            )}
 
             <ButtonGroup justifyContent={"center"}>
               <Button
                 loadingText="Submitting"
-                size="lg"
+                size="md"
                 type="submit"
                 variant={"sucess"}
                 _hover={{
@@ -53,12 +55,20 @@ const ConfirmDelete = ({ isOpen, onClose }: IModalProps) => {
                 _active={{
                   transform: "scale(0.9)",
                 }}
+                onClick={
+                  toDelete
+                    ? () => {
+                        contactDelete();
+                        onClose();
+                      }
+                    : userDelete
+                }
               >
                 Confirmar
               </Button>
               <Button
                 loadingText="Cancelling"
-                size="lg"
+                size="md"
                 type="button"
                 variant={"error"}
                 _hover={{
