@@ -80,8 +80,8 @@ const ContactCard = ({
                   color={useColorModeValue("red.700", "red.500")}
                   icon={<FaRegTrashAlt />}
                   onClick={() => {
-                    onConfirmDeleteOpen();
                     setContact(contact);
+                    onConfirmDeleteOpen();
                   }}
                 >
                   Remover
