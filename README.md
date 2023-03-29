@@ -15,6 +15,7 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
     - [Instalação de dependências](#1-instalação-de-dependências)
     - [Criando variáveis de ambiente](#11-criando-variáveis-de-ambiente)
     - [Executar as migrações](#12-migrations)
+    - [Executar servidor](#13-executar-servidor)
   - [Endpoints](#endpoints)
 
 ## Visão Geral
