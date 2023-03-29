@@ -30,7 +30,7 @@ interface IContactFormProps {
 }
 
 const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactFormProps) => {
-  const { contact, contactRegister, contactEdit } = useContext(UserContext);
+  const { contact, contactRegister, contactEdit, setContact } = useContext(UserContext);
 
   const {
     register,
@@ -76,6 +76,7 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
     <Modal
       isOpen={isOpen}
       onClose={() => {
+        setContact(null);
         onClose();
         setToEdit(false);
       }}
@@ -156,7 +157,11 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
                   _active={{
                     transform: "scale(0.9)",
                   }}
-                  onClick={onClose}
+                  onClick={() => {
+                    setContact(null);
+                    onClose();
+                    setToEdit(false);
+                  }}
                 >
                   Voltar
                 </Button>
