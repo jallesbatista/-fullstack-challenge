@@ -4,20 +4,38 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 
 ## Tópicos de conteúdo
 
+- [Visão Geral](#visão-geral)
+  - [Tecnologias utilizadas](#--tecnologias-utilizadas)
+- [Front End](#front-end)
+  - [Rodar a aplicação localmente](#rodar-aplicação-localmente)
+    - [Instalação de dependências](#0-instalação-de-dependências)
+    - [Executar aplicação](#01-executar-aplicação)
 - [Back End](#back-end)
-  - [Visão Geral](#visão-geral)
-    - [Técnologias utilizadas](#--tecnologias-utilizadas)
   - [Rodar o servidor localmente](#rodar-o-servidor-localmente)
-    - [Intalação de dependências](#1-intalação-de-dependências)
-    - [Criando variáveis de ambiente](#11-criando-váriaveis-de-ambiente)
+    - [Instalação de dependências](#1-instalação-de-dependências)
+    - [Criando variáveis de ambiente](#11-criando-variáveis-de-ambiente)
     - [Executar as migrações](#12-migrations)
   - [Endpoints](#endpoints)
 
-## **Back End**
-
 ## Visão Geral
 
+[Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
+
 ### - Tecnologias utilizadas
+
+- Front End:
+
+|                                                           |                                                                    |
+| --------------------------------------------------------- | ------------------------------------------------------------------ |
+| [Chakara UI](https://chakra-ui.com)                       | [Emotion](https://emotion.sh/docs/introduction)                    |
+| [TypeScript](https://www.typescriptlang.org/)             | [React Hook Form](https://react-hook-form.com)                     |
+| [NodeJS](https://nodejs.org/en/docs/)                     | [NextJs](https://nextjs.org)                                       |
+| [Pdfmake](http://pdfmake.org/#/)                          | [React-input-mask](https://www.npmjs.com/package/react-input-mask) |
+| [Axios](https://axios-http.com/ptbr/docs/intro)           | [Framer Motion](https://www.framer.com/motion/)                    |
+| [Nookies](https://www.npmjs.com/package/nookies)          | [Yup](https://www.npmjs.com/package/yup)                           |
+| [React-icons](https://react-icons.github.io/react-icons/) | [Lottie-react](https://www.npmjs.com/package/lottie-react)         |
+
+- Back End:
 
 |                                                      |                                                                            |
 | ---------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -31,23 +49,73 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 | [Dotenv](https://www.npmjs.com/package/dotenv)       | [Express-async-errors](https://www.npmjs.com/package/express-async-errors) |
 | [Zod](https://www.npmjs.com/package/zod)             | [TS-node](https://www.npmjs.com/package/ts-node)                           |
 
+## **Front End**
+
+## Rodar aplicação localmente
+
+[Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
+
+<h4 align="center"><strong>🚨 Importante 🚨</strong></h4>
+
+Após clonar o repositório, no seu terminal entre na pasta **/front**. Caso esteja na pasta raiz do projeto, dentro do terminal utilize:
+
+```bash
+cd front/
+```
+
+### 0. Instalação de dependências
+
+[Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
+
+Para instalação utilize os seguintes comandos em seu terminal:
+
+```bash
+yarn
+```
+
+Ou (<span style="color:#11a56e;">Recomendado</span>)
+
+```bash
+npm install
+```
+
+### 0.1. Executar aplicação
+
+[Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
+
+Com tudo instalado, falta somente executar a aplicação bastando executar o comando:
+
+```bash
+yarn dev
+```
+
+Ou
+
+```bash
+npm run dev
+```
+
+---
+
+## **Back End**
+
 ## Rodar o servidor localmente
 
 [Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
 
 <h4 align="center"><strong>🚨 Importante 🚨</strong></h4>
 
-Antes de tudo clone o repositório e certifique-se que o terminal está aberto dentro da pasta **/back**, caso esteja na pasta raiz do projeto, dentro do terminal utilize:
+Abra um novo terminal e no terminal entre na pasta **/back**. Caso esteja na pasta raiz do projeto, dentro do terminal utilize:
 
 ```bash
 cd back/
 ```
 
-### 1. Intalação de dependências
+### 1. Instalação de dependências
 
 [Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
 
-Para instalção utilize os seguintes comandos em seu terminal:
+Para instalação utilize os seguintes comandos em seu terminal:
 
 ```bash
 yarn
@@ -59,7 +127,7 @@ Ou
 npm install
 ```
 
-### 1.1. Criando váriaveis de ambiente
+### 1.1. Criando variáveis de ambiente
 
 [Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
 
@@ -88,6 +156,22 @@ npm run typeorm migration:run -- -d src/data-source.ts
 ```
 
 OBS: Erros podem ocorrer por conta de incompatibilidade da versão do **typeorm** utilizada e o seu **Sistema Operacional**. Caso ocorram tente adequar para a versão mais estável recomendada em relação do seu **OS**.
+
+### 1.3. Executar servidor
+
+[Retornar aos tópicos de conteúdo - 🔙](#tópicos-de-conteúdo)
+
+Com tudo configurado, falta somente rodar o servidor bastando executar o comando:
+
+```bash
+yarn dev
+```
+
+Ou
+
+```bash
+npm run dev
+```
 
 ---
 
