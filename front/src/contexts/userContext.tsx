@@ -128,7 +128,7 @@ export const UserProvider = ({ children }: IProviderProps) => {
     } catch (error: any) {
       toast({
         position: "bottom-right",
-        title: error.response.data.message,
+        title: error.response.data.message || error.response.data.email[0],
         status: "error",
         duration: 5000,
         isClosable: true,

@@ -1,6 +1,6 @@
 import { UserContext } from "@/contexts/userContext";
 import { contactSchema } from "@/schemas";
-import { IUserData, TContactRegister } from "@/types";
+import { TContactRegister } from "@/types";
 import {
   Box,
   Button,
@@ -9,6 +9,7 @@ import {
   FormErrorMessage,
   FormLabel,
   Heading,
+  IconButton,
   Input,
   Modal,
   ModalContent,
@@ -18,8 +19,9 @@ import {
 } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ReactNode, useContext, useEffect } from "react";
-import { FieldErrors, useForm, UseFormRegister } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import ReactInputMask from "react-input-mask";
+import { FaWindowClose } from "react-icons/fa";
 
 interface IContactFormProps {
   toEdit?: boolean;
@@ -57,15 +59,22 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
     }
   }, [toEdit]);
 
+  const closeContactForm = () => {
+    setContact(null);
+    onClose();
+    setToEdit(false);
+    reset({
+      name: "",
+      email: "",
+      tel: "",
+    });
+  };
+
   const onSubmit = async (data: TContactRegister) => {
     if (!toEdit) {
       const sucess = await contactRegister(data);
       if (sucess) {
-        reset({
-          name: "",
-          email: "",
-          tel: "",
-        });
+        closeContactForm();
       }
     } else {
       await contactEdit(data);
@@ -73,16 +82,8 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={() => {
-        setContact(null);
-        onClose();
-        setToEdit(false);
-      }}
-      isCentered
-    >
-      <ModalOverlay />
+    <Modal isOpen={isOpen} onClose={closeContactForm} isCentered>
+      <ModalOverlay onClick={closeContactForm} />
       <ModalContent w={"90%"}>
         <Box
           as={"form"}
@@ -91,7 +92,25 @@ const ContactForm = ({ toEdit, onClose, isOpen, children, setToEdit }: IContactF
           boxShadow={"lg"}
           p={8}
           onSubmit={handleSubmit(onSubmit)}
+          position={"relative"}
         >
+          <IconButton
+            fontSize={"1.5rem"}
+            aria-label="Close"
+            icon={<FaWindowClose />}
+            position={"absolute"}
+            top={"24px"}
+            right={"10px"}
+            p={0}
+            height={0}
+            minH={0}
+            transition={"0.3s"}
+            color="red"
+            _active={{
+              transform: "scale(0.9)",
+            }}
+            onClick={closeContactForm}
+          />
           <Heading fontSize={"1.5rem"} textAlign={"center"}>
             {toEdit ? "Editar contato" : "Adicionar contato"}
           </Heading>
