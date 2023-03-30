@@ -16,6 +16,7 @@ import ContactForm from "./contactForm";
 import ConfirmDelete from "./confirmDelete";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 import clientReportPDF from "../functions/clientReportPDF";
+import NoContactsMessage from "./noContactsMessage";
 
 const ContactsList = () => {
   const { contactList, setContact, user } = useContext(UserContext);
@@ -33,6 +34,11 @@ const ContactsList = () => {
 
   const [toEdit, setToEdit] = useState<boolean>(false);
 
+  const openAddContact = () => {
+    onContactFormOpen();
+    setContact(null);
+  };
+
   return (
     <>
       <Box m={"0 auto"} w={"90%"} minW={300} mt={"106px"}>
@@ -49,10 +55,7 @@ const ContactsList = () => {
                 transform: "scale(1.07)",
                 border: "2px solid #22543d",
               }}
-              onClick={() => {
-                onContactFormOpen();
-                setContact(null);
-              }}
+              onClick={openAddContact}
               ml={2}
               px={6}
               size={"md"}
@@ -74,6 +77,7 @@ const ContactsList = () => {
             />
           </ButtonGroup>
 
+          <NoContactsMessage openAddContact={openAddContact} />
           <List
             zIndex={1}
             spacing={4}
