@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import api from "@/services/api";
 import nookies, { destroyCookie } from "nookies";
 import { useContext, useEffect } from "react";
@@ -9,7 +9,7 @@ import { AuthContext } from "@/contexts/authContext";
 import ContactsList from "@/components/contactsList";
 
 const Dashboard: NextPage<Props> = ({ token }) => {
-  const { user, setUser, setContactList } = useContext(UserContext);
+  const { setUser, setContactList } = useContext(UserContext);
   const { setToken } = useContext(AuthContext);
   const router = useRouter();
 

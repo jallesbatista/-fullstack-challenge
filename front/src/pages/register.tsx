@@ -1,5 +1,4 @@
 import RegisterForm from "@/components/registerForm";
-import UserForm from "@/components/userFormBase";
 import { GetServerSideProps, NextPage } from "next";
 import nookies from "nookies";
 
