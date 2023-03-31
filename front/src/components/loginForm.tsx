@@ -59,7 +59,12 @@ const LoginForm = () => {
           <Stack spacing={4} minW={"200px"}>
             <FormControl id="email" isInvalid={!!errors.email?.message}>
               <FormLabel>E-mail</FormLabel>
-              <Input focusBorderColor="blue.300" type="email" {...register("email")} />
+              <Input
+                focusBorderColor="blue.300"
+                type="email"
+                {...register("email")}
+                placeholder="Insira seu email, ex: carlos@mail.com"
+              />
               <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
             </FormControl>
             <FormControl id="password" isInvalid={!!errors.password?.message}>
@@ -69,6 +74,7 @@ const LoginForm = () => {
                   focusBorderColor="blue.300"
                   type={showPassword ? "text" : "password"}
                   {...register("password")}
+                  placeholder="Insira sua senha"
                 />
                 <InputRightElement h={"full"}>
                   <Button
