@@ -42,7 +42,7 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 | ---------------------------------------------------- | -------------------------------------------------------------------------- |
 | [NodeJS](https://nodejs.org/en/docs/)                | [TS-jest](https://www.npmjs.com/package/ts-jest)                           |
 | [TypeScript](https://www.typescriptlang.org/)        | [Supertest](https://www.npmjs.com/package/supertest)                       |
-| [TypeORM](https://typeorm.io/)                       | [Sqlite3](https://www.npmjs.com/package/sqlite3)                           |
+| [TypeORM](https://typeorm.io/)                       | [PostgresSQL](https://www.postgresql.org)                                  |
 | [Express](https://expressjs.com/)                    | [Jest](https://jestjs.io/pt-BR/)                                           |
 | [BcryptJS](https://www.npmjs.com/package/bcryptjs)   | [Reflect-metadata](https://www.npmjs.com/package/reflect-metadata)         |
 | [Uuid](https://www.npmjs.com/package/uuid)           | [Pg](https://www.npmjs.com/package/pg)                                     |
