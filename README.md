@@ -40,15 +40,15 @@ O Full-Stack Challenge consiste num desafio de criar uma aplicação Full Stack 
 
 |                                                      |                                                                            |
 | ---------------------------------------------------- | -------------------------------------------------------------------------- |
-| [NodeJS](https://nodejs.org/en/docs/)                | [TS-jest](https://www.npmjs.com/package/ts-jest)                           |
-| [TypeScript](https://www.typescriptlang.org/)        | [Supertest](https://www.npmjs.com/package/supertest)                       |
-| [TypeORM](https://typeorm.io/)                       | [Sqlite3](https://www.npmjs.com/package/sqlite3)                           |
-| [Express](https://expressjs.com/)                    | [Jest](https://jestjs.io/pt-BR/)                                           |
-| [BcryptJS](https://www.npmjs.com/package/bcryptjs)   | [Reflect-metadata](https://www.npmjs.com/package/reflect-metadata)         |
-| [Uuid](https://www.npmjs.com/package/uuid)           | [Pg](https://www.npmjs.com/package/pg)                                     |
-| [Cross-env](https://www.npmjs.com/package/cross-env) | [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)                 |
-| [Dotenv](https://www.npmjs.com/package/dotenv)       | [Express-async-errors](https://www.npmjs.com/package/express-async-errors) |
-| [Zod](https://www.npmjs.com/package/zod)             | [TS-node](https://www.npmjs.com/package/ts-node)                           |
+| [NodeJS](https://nodejs.org/en/docs/)                | [Supertest](https://www.npmjs.com/package/supertest)                       |
+| [TypeScript](https://www.typescriptlang.org/)        | [PostgreSQL](https://www.postgresql.org)                                   |
+| [TypeORM](https://typeorm.io/)                       | [Jest](https://jestjs.io/pt-BR/)                                           |
+| [Express](https://expressjs.com/)                    | [Reflect-metadata](https://www.npmjs.com/package/reflect-metadata)         |
+| [BcryptJS](https://www.npmjs.com/package/bcryptjs)   | [Pg](https://www.npmjs.com/package/pg)                                     |
+| [Uuid](https://www.npmjs.com/package/uuid)           | [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)                 |
+| [Cross-env](https://www.npmjs.com/package/cross-env) | [Express-async-errors](https://www.npmjs.com/package/express-async-errors) |
+| [Dotenv](https://www.npmjs.com/package/dotenv)       | [Zod](https://www.npmjs.com/package/zod)                                   |
+| [SQLite3](https://www.npmjs.com/package/sqlite3)     |                                                                            |
 
 ## **Front End**
 
